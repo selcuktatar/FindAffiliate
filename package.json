@@ -1,0 +1,50 @@
+{
+  "name": "findaffiliate",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "db:generate": "drizzle-kit generate",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "lint-fix": "eslint . --fix",
+    "deploy-hub": "npx nuxthub deploy"
+  },
+  "dependencies": {
+    "@fastify/cors": "^10.0.2",
+    "@nuxt/eslint": "1.0.1",
+    "@nuxt/ui": "^2.15.1",
+    "@nuxthub/core": "0.8.17",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/tailwindcss": "^6.13.1",
+    "@pinia/nuxt": "0.10.1",
+    "airtable": "^0.12.2",
+    "drizzle-orm": "^0.39.3",
+    "nuxt": "^3.11.2",
+    "nuxt-security": "2.1.5",
+    "nuxt-umami": "^2.6.4",
+    "pinia": "^3.0.1",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^1.0.1",
+    "@nuxtjs/device": "^3.1.1",
+    "drizzle-kit": "^0.19.1",
+    "eslint": "^9.20.1",
+    "nuxt-disqus": "^1.0.1",
+    "wrangler": "^3.109.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@parcel/watcher",
+      "esbuild",
+      "sharp",
+      "workerd"
+    ]
+  }
+}
