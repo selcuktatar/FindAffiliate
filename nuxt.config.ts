@@ -12,6 +12,13 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxthub/core",
   ],
+  vite: {
+    server: {
+      fs: {
+        strict: false
+      }
+    }
+  },
   hub: {
     database: true,
     kv: true
