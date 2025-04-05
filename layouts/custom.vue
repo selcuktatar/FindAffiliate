@@ -1,31 +1,27 @@
 <script setup lang="ts">
-import { useDataStore } from "~/stores/data";
-const dataStore = useDataStore();
-const isLoading = ref(true);
+import { useDataStore } from "~/stores/data"
+const dataStore = useDataStore()
 
-const { data: categories } = useFetch('/api/categories', {
-  method: 'GET',
-});
+onMounted(async () => {
+  await getCategories()
+  await getPrograms()
 
-const { data: programs } = useFetch('/api/programs', {
-  method: 'GET',
-});
+})
 
-watch(categories, (newCategories) => {
-  if (newCategories && newCategories.value) {
-    console.log('Categories updated:', newCategories.value);
-    dataStore.updateCategories(newCategories.value);
-  }
-}, { deep: true });
+const getPrograms = async () => {
+  const { data: categories } = useFetch('/api/programs', {
+    method: 'GET',
+  })
+  dataStore.updatePrograms(categories)
+  dataStore.updateFilteredData(categories)
+}
 
-watch(programs, (newPrograms) => {
-  if (newPrograms && newPrograms.value) {
-    console.log('Programs updated:', newPrograms.value);
-    dataStore.updatePrograms(newPrograms.value);
-    dataStore.updateFilteredData(newPrograms.value);
-    isLoading.value = false;
-  }
-}, { deep: true });
+const getCategories = async () => {
+  const { data: categories } = useFetch('/api/categories', {
+    method: 'GET',
+  })
+  dataStore.updateCategories(categories);
+}
 
 </script>
 
